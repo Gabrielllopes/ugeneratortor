@@ -1,6 +1,7 @@
 from src.models.base import Language
+from src.config import DEFAULT_N_SLIDES
 
-def system_isntruction(language: Language, n_slides: int):
+def system_isntruction(language: Language, n_slides: int=DEFAULT_N_SLIDES):
   return f"""
     Use the provided message to create copy for a carousel post in {language}.
 
