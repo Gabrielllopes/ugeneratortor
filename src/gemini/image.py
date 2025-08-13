@@ -10,11 +10,11 @@ def get_from_gemini_image(
         aspect_ratio=DEFAULT_ASPECT_RATIO
     ):
     response = client.models.generate_images(
-    model=model,
-    prompt=input_messge,
-    config=types.GenerateImagesConfig(
-        number_of_images=n_image,
-        aspectRatio=aspect_ratio
-    )
+        model=model,
+        prompt=input_messge,
+        config=types.GenerateImagesConfig(
+            number_of_images=n_image,
+            aspectRatio=aspect_ratio
+        )
     )
     return response
