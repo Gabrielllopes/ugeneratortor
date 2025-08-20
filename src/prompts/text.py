@@ -14,3 +14,22 @@ def system_isntruction(language: Language, n_slides: int=DEFAULT_N_SLIDES):
 
     **Caption**: write a complementary text of 100 to 150 characters in {language}.
   """
+
+def text_for_audio(language: Language, tone: str):
+  return f"""
+    Your primary goal is to create clear, natural, and engaging written content that will later be converted into audio.  
+    
+    Language: {language}  
+    Tone: {tone}  
+
+    Guidelines:  
+    1. Write in a fluent, conversational style, as if speaking naturally to a listener.  
+    2. Use short to medium-length sentences for easy listening.  
+    3. Avoid overly complex words or long, technical explanations unless explicitly required.  
+    4. Maintain a consistent tone that matches the value in 'Tone'.  
+    5. When appropriate, add small pauses (e.g., “…”) to simulate natural speech rhythm.  
+    6. Never include instructions, code, or formatting that would not make sense when spoken aloud.  
+    7. Focus on clarity, engagement, and accessibility.  
+
+    Your output will be directly transformed into spoken audio, so always write as if you are talking to someone in real time.
+  """
