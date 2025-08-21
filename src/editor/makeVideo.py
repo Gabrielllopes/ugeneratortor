@@ -12,13 +12,12 @@ def merge_audio_video(video_files, audio_files, output_file):
     audio = concatenate_audioclips(audio_clips)
     audio_duration = audio.duration
 
-    # # Ajusta duração
-    # if audio_duration > video_duration:
-    #     n_loops = int(audio_duration // video_duration) + 1
-    #     video_loop = concatenate_videoclips([video] * n_loops, method="chain")
-    #     video_final = video_loop.subclip(0, audio_duration)
-    # else:
-    #     video_final = video.subclip(0, audio_duration)
+    # Ajusta duração
+    if audio_duration > video_duration:
+        n_loops = int(audio_duration // video_duration) + 1
+        video_loop = concatenate_videoclips([video] * n_loops, method="compose")
 
-    final = video.set_audio(audio)
-    final.write_videofile(output_file, codec="libx264", audio_codec="aac")
+    video_final = video_loop.subclipped(0, audio_duration)
+
+    video_final.audio = audio
+    video_final.write_videofile(output_file, codec="libx264", audio_codec="aac")
