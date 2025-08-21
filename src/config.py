@@ -4,7 +4,7 @@ DEFAULT_ASPECT_RATIO = "1:1"
 DEFAULT_N_IMAGES = 2
 
 # gemini text
-DEFAULT_MODEL_TEXT = "gemini-2.5-flash"
+DEFAULT_MODEL_TEXT = "gemini-2.5-pro"
 
 # https://ai.google.dev/gemini-api/docs/thinking
 DEFAULT_THINKING = 0 # SET TO FALSE
