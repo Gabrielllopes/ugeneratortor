@@ -1,6 +1,6 @@
 import wave
 from pydub import AudioSegment
-
+from moviepy import AudioFileClip
 
 def wave_file(filename, pcm, channels=1, rate=24000, sample_width=2):
    with wave.open(filename, "wb") as wf:
@@ -18,3 +18,7 @@ def mp4_file(filename, pcm, channels=1, rate=24000, sample_width=2):
         channels=channels
     )
     audio.export(filename, format="mp4")
+
+def get_audio_duration(audio_file):
+    audio = AudioFileClip(audio_file)
+    return audio.duration

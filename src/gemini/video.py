@@ -17,8 +17,11 @@ def generate_video(prompt, model, save_path, file_name, negative_prompt=None, as
         print("Waiting for video generation to complete...")
         time.sleep(5)
         operation = client.operations.get(operation)
-        
-    generated_video = operation.response.generated_videos[0]
+        try:
+            generated_video = operation.response.generated_videos[0]
+        except Exception as e:
+            return operation
+    
     client.files.download(file=generated_video.video)
     generated_video.video.save(f"{save_path}/{file_name}")
 
