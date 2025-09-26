@@ -12,3 +12,5 @@ __pycache__/
 
 *.wav
 *.mp4
+
+base_tosca
